@@ -7,7 +7,10 @@ const Stopwatch = () => {
     useEffect(() => {
         let stoper
         stoper = setInterval(() => setElaspsedTime(prevTime => {if(prevTime > 0){
-          return  prevTime - 1} else {
+          return  prevTime - 1} else if(prevTime === 0) {
+            clearInterval(stoper)
+            return 0
+          } else {
             return 10
           }
         
@@ -20,7 +23,10 @@ const Stopwatch = () => {
 
 
     return(
-        <p>{elaspsedTime}</p>
+      <div className="stopwatch-wrap">
+        <span className="stopwatch">{elaspsedTime}</span>
+      </div>
+        
     )
 }
 
