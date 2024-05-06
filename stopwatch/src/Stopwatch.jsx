@@ -23,10 +23,9 @@ const Stopwatch = () => {
 
 
     return(
-      <div className="stopwatch-wrap">
-        <span className="stopwatch">{elaspsedTime}</span>
-      </div>
-        
+        <div className="stopwatch-wrap" style={{backgroundColor: elaspsedTime===0? 'yellow' : 'transparent', color:elaspsedTime===0? 'black' : 'white'}}>
+          <span className="stopwatch">{elaspsedTime}</span>
+        </div>
     )
 }
 
