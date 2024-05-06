@@ -1,10 +1,16 @@
 
 import Stopwatch from "./Stopwatch"
+import StopwachWithButton from "./StopwacgWithButton"
 
 function App() {
 
   return (
-   <Stopwatch />
+    <>
+      <Stopwatch />
+
+      <StopwachWithButton />   
+    </>
+ 
   )
 }
 
