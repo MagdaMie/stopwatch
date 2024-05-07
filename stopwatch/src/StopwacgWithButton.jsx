@@ -7,9 +7,10 @@ const StopwachWithButton = () => {
 
     useEffect(() => {
         let stoper
-        if(isOn === true) {
+        if(timeToElapse >= 0 && isOn === true) {
             stoper = setInterval(() => setTimeToElapse(prevTime => {if(prevTime > 0){
                 return  prevTime - 1} else if(prevTime === 0) {
+                    setIsOn(false)
                   clearInterval(stoper)
                   return 0
                 } 
@@ -21,7 +22,7 @@ const StopwachWithButton = () => {
         
     },
     
-    [isOn])
+    [timeToElapse, isOn])
 
     const stoperStopedStyle = {
         backgroundColor: timeToElapse===0? 'yellow' : 'transparent', 
