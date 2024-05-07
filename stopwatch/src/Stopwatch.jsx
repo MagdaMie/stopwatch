@@ -6,8 +6,10 @@ const Stopwatch = () => {
 
     useEffect(() => {
         let stoper
-        stoper = setInterval(() => setElaspsedTime(prevTime => {if(prevTime > 0){
-          return  prevTime - 1} else if(prevTime === 0) {
+        stoper = setInterval(() => setElaspsedTime(prevTime => {
+          if(prevTime > 0){
+            return  prevTime - 1} 
+          else if(prevTime === 0) {
             clearInterval(stoper)
             return 0
           } else {
@@ -21,9 +23,13 @@ const Stopwatch = () => {
     
     [])
 
+    const stoperStopedStyle = {
+      backgroundColor: elaspsedTime===0? 'yellow' : 'transparent', 
+      color:elaspsedTime===0? 'black' : 'white'
+    }
 
     return(
-        <div className="stopwatch-wrap" style={{backgroundColor: elaspsedTime===0? 'yellow' : 'transparent', color:elaspsedTime===0? 'black' : 'white'}}>
+        <div className="stopwatch-wrap" style={stoperStopedStyle}>
           <span className="stopwatch">{elaspsedTime}</span>
         </div>
     )
