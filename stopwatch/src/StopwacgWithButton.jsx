@@ -23,14 +23,17 @@ const StopwachWithButton = () => {
     
     [isOn])
 
- 
+    const stoperStopedStyle = {
+        backgroundColor: timeToElapse===0? 'yellow' : 'transparent', 
+        color:timeToElapse===0? 'black' : 'white'
+      }
 
 
     return(
         <div>
             <input type="text" onChange={e => setTimeToElapse(e.target.value)}/>
             <button onClick={() => setIsOn(true)}>Start</button>
-             <div className="stopwatch-wrap" style={{backgroundColor: timeToElapse===0? 'yellow' : 'transparent', color:timeToElapse===0? 'black' : 'white'}}>
+             <div className="stopwatch-wrap" style={stoperStopedStyle}>
                 <span className="stopwatch">{timeToElapse}</span>
             </div>
 
